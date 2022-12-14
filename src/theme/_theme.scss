@@ -1,0 +1,35 @@
+//Colors
+$primaryColor: #0084e4;
+$primaryColor10: #e9f7fd;
+$borderColor: #f7f8f8;
+$mediumGray: #ababab;
+$darkGray: #787878;
+$black: #1d1617;
+$white: #ffffff;
+
+// Breakpoints
+@mixin xsPhoneView {
+  @media screen and (max-width: 481px) {
+    @content;
+  }
+}
+@mixin smTabletView {
+  @media screen and (min-width: 481px) {
+    @content;
+  }
+}
+@mixin mdTabletView {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+@mixin lgLaptopView {
+  @media screen and (min-width: 980px) {
+    @content;
+  }
+}
+@mixin xlDesktopView {
+  @media screen and (min-width: 1200px) {
+    @content;
+  }
+}
