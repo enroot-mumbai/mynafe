@@ -4,7 +4,9 @@ type Props = {}
 
 function Head({}: Props) {
   return (
-    <div>Head</div>
+    <div>
+      
+    </div>
   )
 }
 

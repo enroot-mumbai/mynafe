@@ -4,7 +4,9 @@ type Props = {}
 
 function Navigation({}: Props) {
   return (
-    <div>Navigation</div>
+    <div className='navigationBar'>
+      <img src='/logoWhite.png' style={{height:'36px'}} />
+    </div>
   )
 }
 

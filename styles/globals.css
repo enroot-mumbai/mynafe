@@ -24,3 +24,9 @@ a {
     background: black;
   }
 }
+
+button{
+  border: 0;
+  background-color: transparent;
+  text-align: left;
+}

@@ -11,7 +11,6 @@ function Layout({children}: Props) {
   return (
     <>
         <Head/>
-        <Navigation/>
             {children}
         <Footer/>
     </>

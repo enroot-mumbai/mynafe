@@ -54,14 +54,30 @@ html {
   width: 100%;
 }
 
+.pageContainerCenter{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.pageContent{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 320px;
+}
+
 .pageTitle {
-  font-size: 18px;
+  font-size: 24px;
   font-weight: bold;
   // line-height: 1.7;
 
-  @media only screen and (min-width: 768px) {
-    font-size: 24px;
-  }
+  // @media only screen and (min-width: 768px) {
+  //   font-size: 24px;
+  // }
 }
 
 .pageSubTitle {
@@ -217,7 +233,7 @@ html {
 }
 
 .inlineButton {
-  color: #0084e4;
+  color: $primaryColor;
   font-weight: 600;
   width: 100%;
   font-size: 14px;
@@ -269,7 +285,7 @@ button:hover {
 }
 
 .text-link {
-  color: #0084e4;
+  color: $primaryColor;
   text-decoration: none;
 }
 
@@ -345,6 +361,10 @@ button:hover {
   justify-content: space-between;
 }
 
+.flex-gap20{
+  gap: 20px;
+}
+
 .w-100 {
   width: 100%;
 }
@@ -357,8 +377,12 @@ button:hover {
   font-weight: 800;
 }
 
+.max-w-320{
+  max-width: 320px;
+}
+
 .color-primary {
-  color: #0084e4;
+  color: $primaryColor;
 }
 
 .color-white {
@@ -372,6 +396,10 @@ button:hover {
   text-decoration: line-through;
 }
 
+.divider{
+  border: 1px solid #F0F0F0;
+}
+
 .fixed-top {
   top: 64px;
   left: 0px;
@@ -383,7 +411,7 @@ button:hover {
   position: fixed;
   text-align: center;
   font-weight: bold;
-  background-color: #0084e4;
+  background-color: $primaryColor;
   @media only screen and (max-width: 768px) {
     top: 56px;
   }
@@ -431,7 +459,7 @@ button:hover {
 }
 
 .MuiTab-root.Mui-selected {
-  color: #0084e4;
+  color: $primaryColor;
   font-weight: bold;
 }
 
@@ -445,7 +473,7 @@ button:hover {
 }
 
 .link {
-  color: #0084e4;
+  color: $primaryColor;
   cursor: pointer;
 }
 
@@ -464,7 +492,7 @@ button:hover {
   cursor: pointer;
 
   &.selected {
-    background-color: #0084e4;
+    background-color: $primaryColor;
     color: #ffffff;
   }
 }
@@ -714,7 +742,7 @@ div[role='dialog'] {
     background-color: #f2f2f7;
   }
   & p {
-    color: #0084e4;
+    color: $primaryColor;
   }
   &.red p {
     color: rgba(231, 76, 60, 1);
@@ -726,7 +754,7 @@ div[role='dialog'] {
     color: rgba(46, 204, 113, 1);
   }
   &.blue p {
-    color: #0084e4;
+    color: $primaryColor;
   }
   &.gray p {
     color: rgba(189, 195, 199, 1);
@@ -774,15 +802,15 @@ div[role='dialog'] {
 }
 
 .partnerCTABlue {
-  color: #0084e4;
-  border: 1px solid #0084e4;
+  color: $primaryColor;
+  border: 1px solid $primaryColor;
   > span {
-    color: #0084e4;
+    color: $primaryColor;
   }
 }
 
 .smallButton {
-  color: #0084e4;
+  color: $primaryColor;
   font-size: '14px';
   font-weight: 700;
   cursor: pointer;
@@ -805,7 +833,7 @@ div[role='dialog'] {
 }
 
 .smallLink {
-  color: #0084e4;
+  color: $primaryColor;
   font-weight: 600;
   background-color: transparent;
   border: 0;
@@ -814,4 +842,20 @@ div[role='dialog'] {
 
 .max-w-320 {
   max-width: 320px;
+}
+
+.navigationBar{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: $primaryColor;
+  padding-left: 20px;
+}
+
+.bottomNavigation{
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
 }

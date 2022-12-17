@@ -3,61 +3,70 @@ import Tab from '@mui/material/Tab';
 import React from 'react'
 
 interface TabPanelProps {
-    children?: React.ReactNode;
-    index: number;
-    value: number;
+  children?: React.ReactNode;
+  index: number;
+  value: number;
 }
 
 function TabPanel(props: TabPanelProps) {
-    const { children, value, index, ...other } = props;
+  const { children, value, index, ...other } = props;
 
-    return (
-        <div
-            role="tabpanel"
-            hidden={value !== index}
-            id={`simple-tabpanel-${index}`}
-            aria-labelledby={`simple-tab-${index}`}
-            {...other}
-        >
-            {value === index && (
-                <div>
-                    <span>{children}</span>
-                </div>
-            )}
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <div>
+          <span>{children}</span>
         </div>
-    );
+      )}
+    </div>
+  );
 }
 
 function a11yProps(index: number) {
-    return {
-        id: `simple-tab-${index}`,
-        'aria-controls': `simple-tabpanel-${index}`,
-    };
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
+  };
 }
 
-export default function BasicTabs() {
-    const [value, setValue] = React.useState(0);
-  
-    const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-      setValue(newValue);
-    };
-  
-    return (
-      <div>
-          <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-            <Tab label="Item One" {...a11yProps(0)} />
-            <Tab label="Item Two" {...a11yProps(1)} />
-            <Tab label="Item Three" {...a11yProps(2)} />
-          </Tabs>
-        <TabPanel value={value} index={0}>
-          Item One
-        </TabPanel>
-        <TabPanel value={value} index={1}>
-          Item Two
-        </TabPanel>
-        <TabPanel value={value} index={2}>
-          Item Three
-        </TabPanel>
-      </div>
-    );
-  }
+interface TabComponentProps {
+  tabs:Array<TabsProps>;
+}
+interface TabsProps{
+  title:string;
+  Component:any;
+}
+
+export default function BasicTabs({tabs}:TabComponentProps) {
+
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+    setValue(newValue);
+  };
+
+  return (
+    <div>
+      <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+        {tabs.map((tab, index) => {
+          return (
+            <Tab key={index} label={tab.title} {...a11yProps(index)} />
+          )
+        })}
+      </Tabs>
+      {tabs.map((tab, index) => {
+        return (
+          <TabPanel key={index} value={value} index={index}>
+            {tab.Component}
+          </TabPanel>
+        )
+      })}
+    </div>
+  );
+}
