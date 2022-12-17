@@ -10,10 +10,8 @@ import ChatIcon from '../../assets/icons/ChatIcon';
 import SehatIcon from '../../assets/icons/SehatIcon';
 import ProfileIcon from '../../assets/icons/ProfileIcon';
 
-export default function SimpleBottomNavigation() {
-  const [value, setValue] = React.useState(0);
-
-  console.log('value', value)
+export default function SimpleBottomNavigation({defaultValue=0}:any) {
+  const [value, setValue] = React.useState(defaultValue);
 
   return (
     <div className='bottomNavigation'>

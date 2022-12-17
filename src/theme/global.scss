@@ -63,6 +63,11 @@ html {
   min-height: 100vh;
 }
 
+.pageContainerTop{
+  display: flex;
+  flex-direction: column;
+}
+
 .pageContent{
   display: flex;
   flex-direction: column;
@@ -335,6 +340,10 @@ button:hover {
 
 .mb-60 {
   margin-bottom: 60px;
+}
+
+.p-20{
+  padding: 20px;
 }
 
 .d-flex {
