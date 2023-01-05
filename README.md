@@ -2,6 +2,10 @@ Find full Documentation here - https://www.notion.so/enrootinnovationfoundation/
 
 Find the designs here - https://www.figma.com/file/8h0QVOaH8zJxLSEmZbJHeS/Myna-App-Designs?node-id=0%3A1&t=85tZvzv9ijAhFvW6-0
 
+
+![Illustrations](https://user-images.githubusercontent.com/44316146/210749522-25f01e24-6652-4da1-ab8e-da464c5676a4.png)
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
