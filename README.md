@@ -1,3 +1,5 @@
+# Myna Frontend
+
 Find full Documentation here - https://www.notion.so/enrootinnovationfoundation/Product-Requirement-Specs-1ec9e483ebe945698d32874a3ed2e108
 
 Find the designs here - https://www.figma.com/file/8h0QVOaH8zJxLSEmZbJHeS/Myna-App-Designs?node-id=0%3A1&t=85tZvzv9ijAhFvW6-0
