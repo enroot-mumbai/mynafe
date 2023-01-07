@@ -1,4 +1,4 @@
-import fetchGraphQL from './graphql';
+import fetchGraphQL from "./graphql";
 
 const POST_GRAPHQL_FIELDS = `
 title
@@ -7,17 +7,23 @@ description
 coverImage {
   url
 }
-videosCollection{
+videosCollection(limit:50){
   items{
+    courseSlug
     slug
     id
     title
     videoLink
+    coverImage {
+      url
+    }
   }
 }
 `;
 
-function extractPostEntries(fetchResponse: { data: { courseCollection: { items: any; }; }; }) {
+function extractPostEntries(fetchResponse: {
+  data: { courseCollection: { items: any } };
+}) {
   return fetchResponse?.data?.courseCollection?.items;
 }
 
@@ -32,11 +38,12 @@ export async function getAllCourses(): Promise<any> {
         }
       }`
   );
+  console.log(result);
   entries = entries.concat(extractPostEntries(result));
   return entries;
 }
 
-export async function getCourseBySlug(slug:string): Promise<any> {
+export async function getCourseBySlug(slug: string): Promise<any> {
   const result = await fetchGraphQL(
     `query {
         courseCollection(where: { slug: "${slug}" }, limit: 1){

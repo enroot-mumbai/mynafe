@@ -1,20 +1,35 @@
-import React from 'react'
-import Footer from './Footer'
-import Head from './Head'
-import Navigation from './Navigation'
+import { useRouter } from "next/router";
+import React from "react";
+import SimpleBottomNavigation from "./BottomNavigation";
+import Footer from "./Footer";
+import Head from "./Head";
+import Navigation from "./Navigation";
 
 type Props = {
-    children: any
-}
+  children: React.ReactNode;
+  exclude?: string[];
+};
 
-function Layout({children}: Props) {
+function Layout({ exclude, children }: Props) {
+  const { pathname } = useRouter();
+
+  if (exclude && exclude.includes(pathname)) {
+    return (
+      <>
+        <Head />
+        {children}
+        <Footer />
+      </>
+    );
+  }
+
   return (
     <>
-        <Head/>
-            {children}
-        <Footer/>
+      <Navigation />
+      {children}
+      <SimpleBottomNavigation defaultValue={0} />
     </>
-  )
+  );
 }
 
-export default Layout
+export default Layout;

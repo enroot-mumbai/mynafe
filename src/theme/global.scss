@@ -15,7 +15,6 @@
 body {
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
-  color: #2f3336;
 }
 
 html {
@@ -66,6 +65,26 @@ html {
 .pageContainerTop{
   display: flex;
   flex-direction: column;
+  background-color: #fff;
+  padding-bottom: 60px;
+}
+
+.auto-container-md {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto
+}
+
+.auto-container-xl {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto
+}
+
+.auto-container-lg {
+  max-width: 1080px;
+  width: 100%;
+  margin: 0 auto
 }
 
 .pageContent{
@@ -201,6 +220,10 @@ html {
 
 .text-left {
   text-align: left;
+}
+
+.color-p {
+  color:$primaryColor
 }
 
 .primaryButton,
