@@ -56,9 +56,9 @@ export const VideoPlayer = ({
               screen?.orientation?.lock("natural");
               console.log("Could not activate full-screen mode :(");
             });
-        } else if (findDOMNode(player)?.mozCancelFullScreen) {
+        } else if (findDOMNode(player)?.mozRequestFullScreen) {
           findDOMNode(player)
-            .mozCancelFullScreen()
+            .mozRequestFullScreen()
             .then(() => {
               screen?.orientation
                 ?.lock("landscape")
@@ -70,9 +70,9 @@ export const VideoPlayer = ({
               screen?.orientation?.lock("natural");
               console.log("Could not activate full-screen mode :(");
             });
-        } else if (findDOMNode(player)?.webkitExitFullscreen) {
+        } else if (findDOMNode(player)?.webkitRequestFullscreen) {
           findDOMNode(player)
-            .webkitExitFullscreen()
+            .webkitRequestFullscreen()
             .then(() => {
               screen?.orientation
                 ?.lock("landscape")
