@@ -28,6 +28,73 @@ export const VideoPlayer = ({
   ...props
 }: VideoPlayerProps) => {
   const router = useRouter();
+  const onStart = (player) => {
+    if (findDOMNode(player)?.requestFullscreen) {
+      findDOMNode(player)
+        .requestFullscreen()
+        .then(() => {
+          screen?.orientation
+            ?.lock("landscape")
+            .catch((err) =>
+              console.log("landscape mode is not available on this device")
+            );
+        })
+        .catch((err) => {
+          screen?.orientation?.lock("natural");
+          console.log("Could not activate full-screen mode :(");
+        });
+    } else if (findDOMNode(player)?.mozRequestFullScreen) {
+      findDOMNode(player)
+        .mozRequestFullScreen()
+        .then(() => {
+          screen?.orientation
+            ?.lock("landscape")
+            .catch((err) =>
+              console.log("landscape mode is not available on this device")
+            );
+        })
+        .catch((err) => {
+          screen?.orientation?.lock("natural");
+          console.log("Could not activate full-screen mode :(");
+        });
+    } else if (findDOMNode(player)?.webkitRequestFullscreen) {
+      findDOMNode(player)
+        .webkitRequestFullscreen()
+        .then(() => {
+          screen?.orientation
+            ?.lock("landscape")
+            .catch((err) =>
+              console.log("landscape mode is not available on this device")
+            );
+        })
+        .catch((err) => {
+          screen?.orientation?.lock("natural");
+          console.log("Could not activate full-screen mode :(");
+        });
+    }
+  };
+  React.useEffect(() => {
+    if (router?.query?.overview === "false" && ReactPlayer.canPlay(videoURL)) {
+      onPlay();
+      onStart();
+    }
+  }, []);
+
+  const onEnded = () => {
+    if (document.exitFullscreen) {
+      document
+        .exitFullscreen()
+        .then(() => screen?.orientation?.lock("natural"));
+    } else if (document?.mozCancelFullScreen) {
+      document
+        ?.mozCancelFullScreen()
+        .then(() => screen?.orientation?.lock("natural"));
+    } else if (document?.webkitExitFullscreen) {
+      document
+        ?.webkitExitFullscreen()
+        .then(() => screen?.orientation?.lock("natural"));
+    }
+  };
   const Video = React.useCallback(
     ({
       onPlay,
@@ -41,75 +108,6 @@ export const VideoPlayer = ({
         player = p?.player;
       };
 
-      const onStart = () => {
-        if (findDOMNode(player)?.requestFullscreen) {
-          findDOMNode(player)
-            .requestFullscreen()
-            .then(() => {
-              screen?.orientation
-                ?.lock("landscape")
-                .catch((err) =>
-                  console.log("landscape mode is not available on this device")
-                );
-            })
-            .catch((err) => {
-              screen?.orientation?.lock("natural");
-              console.log("Could not activate full-screen mode :(");
-            });
-        } else if (findDOMNode(player)?.mozRequestFullScreen) {
-          findDOMNode(player)
-            .mozRequestFullScreen()
-            .then(() => {
-              screen?.orientation
-                ?.lock("landscape")
-                .catch((err) =>
-                  console.log("landscape mode is not available on this device")
-                );
-            })
-            .catch((err) => {
-              screen?.orientation?.lock("natural");
-              console.log("Could not activate full-screen mode :(");
-            });
-        } else if (findDOMNode(player)?.webkitRequestFullscreen) {
-          findDOMNode(player)
-            .webkitRequestFullscreen()
-            .then(() => {
-              screen?.orientation
-                ?.lock("landscape")
-                .catch((err) =>
-                  console.log("landscape mode is not available on this device")
-                );
-            })
-            .catch((err) => {
-              screen?.orientation?.lock("natural");
-              console.log("Could not activate full-screen mode :(");
-            });
-        }
-      };
-      const onEnded = () => {
-        if (document.exitFullscreen) {
-          document
-            .exitFullscreen()
-            .then(() => screen?.orientation?.lock("natural"));
-        } else if (document?.mozCancelFullScreen) {
-          document
-            ?.mozCancelFullScreen()
-            .then(() => screen?.orientation?.lock("natural"));
-        } else if (document?.webkitExitFullscreen) {
-          document
-            ?.webkitExitFullscreen()
-            .then(() => screen?.orientation?.lock("natural"));
-        }
-      };
-      React.useEffect(() => {
-        if (
-          router?.query?.overview === "false" &&
-          ReactPlayer.canPlay(videoURL)
-        ) {
-          onPlay();
-          onStart();
-        }
-      }, []);
       return (
         <ReactPlayer
           url={videoURL}
