@@ -1,4 +1,56 @@
 .singleCourse{
     display: flex;
     flex-direction: column;
+    max-width: 500px;
+    height: 100%;
+    width: 100%;
+    @media screen and (max-width:768px) {
+        max-width: 100%;
+    }
+}
+
+.courseCard {
+    display: flex;
+    flex-direction: column;
+    background-color: #ed60ce18;
+    overflow: hidden;
+    border-radius: 10px;
+    height: 100%;
+    > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+
+.courseContent {
+    padding:20px;
+    > h2 {
+        margin-bottom: 10px;
+        font-size: 18px;
+        color:#ed60ce;
+    }
+    > p {
+        font-size: 16px;
+    }
+    @media screen and (max-width:600px) {
+        > h2 {
+            font-size: 16px;
+        }
+        > p {
+            font-size: 14px;
+        }   
+    }
+}
+
+.courseWrapper {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(320px, 500px));
+    gap:40px;
+    @media screen and (max-width:768px) {
+        grid-template-columns: repeat(1, minmax(280px, 100%));
+        gap:30px;
+
+    }
 }

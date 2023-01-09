@@ -20,12 +20,12 @@ a {
     color-scheme: dark;
   }
   body {
-    color: white;
-    background: black;
+    color: #2f3336;
+    background: #fff;
   }
 }
 
-button{
+button {
   border: 0;
   background-color: transparent;
   text-align: left;

@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  // reactStrictMode: false,
   swcMinify: true,
   typescript: {
     // !! WARN !!
@@ -19,8 +19,8 @@ const nextConfig = {
     CLARITY_ID: process.env.CLARITY_ID,
   },
   images: {
-    domains: ['images.ctfassets.net'],
-  }
-}
+    domains: ["images.ctfassets.net"],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
