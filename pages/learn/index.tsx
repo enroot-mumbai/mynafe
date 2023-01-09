@@ -13,7 +13,7 @@ function Learn({ allCourses }: Props) {
     <>
       <div className="pageContainerTop">
         <div className="pageContent p-20 auto-container-lg">
-          <h2 className="pageTitle color-p">Lessons</h2>
+          <h2 className="pageTitle">Lessons</h2>
           <CoursesWrapper>
             {allCourses?.length > 0 &&
               allCourses?.map((course, index) => {

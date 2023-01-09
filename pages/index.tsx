@@ -60,6 +60,8 @@ export default function Home({ }: Props) {
         </div>
       </div>
 
+      {/* <span className="divider" /> */}
+
       <div className={styles.stepContainer}>
         <p className={styles.subTitle}>Agla step:</p>
 
@@ -86,6 +88,8 @@ export default function Home({ }: Props) {
         })}
 
       </div>
+
+      {/* <span className="divider" /> */}
 
       <HealthTip/>
     </div>
