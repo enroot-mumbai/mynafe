@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
-import MaterialTextField from '../../src/components/inputs/MUITextField'
+import TextField from '@mui/material/TextField';
 
 type Props = {}
 
@@ -10,9 +10,20 @@ function Reset({ }: Props) {
       <div className='pageContent'>
         <h2 className='pageTitle'>Reset Password</h2>
         <div className='d-flex column flex-gap20'>
-          <MaterialTextField variant="outlined" name="password" placeholder='Enter your new password' />
-
-          <MaterialTextField variant="outlined" name="confirm-password" placeholder='Enter your new password again' />
+          <TextField
+            className='specialInput'
+            id="outlined-basic"
+            label="Aapka naya password"
+            variant="outlined"
+            name="password"
+          />
+          <TextField
+            className='specialInput'
+            id="outlined-basic"
+            label="Naya password confirm kare"
+            variant="outlined"
+            name="confirm-password"
+          />
 
           <button className='primaryButton w-100'>
             Reset password

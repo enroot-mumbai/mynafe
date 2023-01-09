@@ -917,3 +917,13 @@ div[role='dialog'] {
 .MuiTabs-flexContainer{
   justify-content: center!important;
 }
+.specialInput{
+  input{
+    background-color: #f2f2f7;
+    border-radius: 10px;
+  }
+  fieldset{
+    border: none;
+   
+  }
+}

@@ -1,5 +1,5 @@
 import React from 'react'
-import MaterialTextField from '../src/components/inputs/MUITextField'
+import TextField from '@mui/material/TextField';
 
 type Props = {}
 
@@ -9,11 +9,39 @@ function Onboarding({ }: Props) {
       <div className='pageContent'>
         <h2 className='pageTitle'>Onboarding</h2>
         <div className='d-flex column flex-gap20'>
-          <MaterialTextField variant="outlined" name="name" placeholder='Your Name' />
+          <TextField
+            className='specialInput'
+            id="outlined-basic"
+            label="Aapka Naam"
+            variant="outlined"
+          />
+          <TextField
+            className='specialInput'
+            id="outlined-basic"
+            label="Aapka Janam din"
+            variant="outlined"
+          />
 
-          <MaterialTextField variant="outlined" name="city" placeholder='Your City' />
-          <MaterialTextField variant="outlined" name="state" placeholder='Your State' />
-          <MaterialTextField variant="outlined" name="dob" placeholder='Date of Birth' />
+          <TextField
+            className='specialInput'
+            id="outlined-basic"
+            label="Aapka Address"
+            variant="outlined"
+          />
+
+          <TextField
+            className='specialInput'
+            id="outlined-basic"
+            label="Aapki City"
+            variant="outlined"
+          />
+
+          <TextField
+            className='specialInput'
+            id="outlined-basic"
+            label="Aapka State"
+            variant="outlined"
+          />
 
           <button className='primaryButton w-100'>
             Submit Details

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react'
-import MaterialTextField from '../../src/components/inputs/MUITextField';
+import TextField from '@mui/material/TextField';
 
 type Props = {}
 
@@ -11,7 +11,7 @@ function EnterEmail({ }: Props) {
 
   const [showOTP, setShowOTP] = React.useState(false);
 
-  const submitOTP =()=>{
+  const submitOTP = () => {
     router.push('/forgot-password/reset')
   }
 
@@ -21,9 +21,15 @@ function EnterEmail({ }: Props) {
       <div className='pageContent'>
         <h2 className='pageTitle'>Reset Password</h2>
         <div className='d-flex column flex-gap20'>
-          <MaterialTextField variant="outlined" name="email" placeholder='Enter your email address' />
+          <TextField
+            className='specialInput'
+            id="outlined-basic"
+            label="Email address"
+            variant="outlined"
+            name="email"
+          />
 
-          <button onClick={()=>setShowOTP(true)} className='primaryButton w-100'>
+          <button onClick={() => setShowOTP(true)} className='primaryButton w-100'>
             Request for OTP
           </button>
 
@@ -40,7 +46,13 @@ function EnterEmail({ }: Props) {
       <div className='pageContent'>
         <h2 className='pageTitle'>Enter OTP</h2>
         <div className='d-flex column flex-gap20'>
-          <MaterialTextField variant="outlined" name="otp" placeholder='Enter OTP' />
+          <TextField
+            className='specialInput'
+            id="outlined-basic"
+            label="Enter OTP"
+            variant="outlined"
+            name="otp"
+          />
 
           <button onClick={submitOTP} className='primaryButton w-100'>
             Submit OTP
@@ -52,7 +64,7 @@ function EnterEmail({ }: Props) {
 
           <span className='divider'></span>
 
-          <button onClick={()=>setShowOTP(false)} className='text-link' >
+          <button onClick={() => setShowOTP(false)} className='text-link' >
             Change email address
           </button>
         </div>

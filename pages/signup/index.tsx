@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
-import MaterialTextField from "../../src/components/inputs/MUITextField";
+import TextField from '@mui/material/TextField';
 import BasicTabs from "../../src/components/Tabs";
 
 type Props = {};
@@ -15,21 +15,28 @@ function Signup({ }: Props) {
     };
     return (
       <div className="d-flex column flex-gap20 mt-20">
-        <MaterialTextField
+        <TextField
+          className='specialInput'
+          id="outlined-basic"
+          label="Email address"
           variant="outlined"
           name="email"
-          placeholder="Email address"
         />
-        <MaterialTextField
+        <TextField
+          className='specialInput'
+          id="outlined-basic"
+          label="Aapka password"
           variant="outlined"
           name="password"
-          placeholder="Aapka password"
         />
-        <MaterialTextField
+        <TextField
+          className='specialInput'
+          id="outlined-basic"
+          label="Password confirm kare"
           variant="outlined"
           name="confirm-password"
-          placeholder="Password confirm kare"
         />
+
 
         <Link className="max-w-320" href={"/terms"}>
           By continuing you agree to the{" "}
@@ -45,21 +52,28 @@ function Signup({ }: Props) {
   const SignupWithPhone = () => {
     return (
       <div className="d-flex column flex-gap20 mt-20">
-        <MaterialTextField
+        <TextField
+          className='specialInput'
+          id="outlined-basic"
+          label="Phone Number"
           variant="outlined"
           name="phone"
-          placeholder="Phone Number"
         />
-        <MaterialTextField
+        <TextField
+          className='specialInput'
+          id="outlined-basic"
+          label="Aapka password"
           variant="outlined"
           name="password"
-          placeholder="Aapka password"
         />
-        <MaterialTextField
+        <TextField
+          className='specialInput'
+          id="outlined-basic"
+          label="Password confirm kare"
           variant="outlined"
           name="confirm-password"
-          placeholder="Password confirm kare"
         />
+
 
         <Link className="max-w-320" href={"/terms"}>
           By continuing you agree to the{" "}
