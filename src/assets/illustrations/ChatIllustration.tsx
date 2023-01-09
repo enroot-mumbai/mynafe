@@ -1,11 +1,14 @@
 import React from "react";
 
-function ChatIllustration() {
+interface Props{
+  height?:string;
+}
+
+function ChatIllustration({height}:Props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="61"
-      height="55"
+      height={height ? height : "55"}
       fill="none"
       viewBox="0 0 61 55"
     >

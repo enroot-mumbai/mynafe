@@ -1,11 +1,12 @@
 import React from "react";
-
-function PeriodTrackingIllustratoin() {
+interface Props{
+  height?:string;
+}
+function PeriodTrackingIllustratoin({height}:Props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="73"
-      height="55"
+      height={height ? height : "55"}
       fill="none"
       viewBox="0 0 73 55"
     >

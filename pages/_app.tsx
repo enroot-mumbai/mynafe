@@ -9,7 +9,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <MuiCssBaseline />
       <Layout
-        exclude={[ "/chats", "/signup", "/login", "/forgot-password", "/onboarding","/forgot-password/reset"]}
+        exclude={["/signup", "/login", "/forgot-password", "/onboarding","/forgot-password/reset", "/onboarding/steps"]}
       >
         <Component {...pageProps} />
       </Layout>

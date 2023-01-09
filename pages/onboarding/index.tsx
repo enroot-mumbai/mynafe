@@ -1,9 +1,11 @@
 import React from 'react'
 import TextField from '@mui/material/TextField';
+import { useRouter } from 'next/router';
 
 type Props = {}
 
 function Onboarding({ }: Props) {
+  const router = useRouter();
   return (
     <div className='pageContainerCenter'>
       <div className='pageContent'>
@@ -43,7 +45,9 @@ function Onboarding({ }: Props) {
             variant="outlined"
           />
 
-          <button className='primaryButton w-100'>
+          <button onClick={() => {
+            router.push('/onboarding/steps')
+          }} className='primaryButton w-100'>
             Submit Details
           </button>
         </div>
