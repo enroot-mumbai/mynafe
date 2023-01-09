@@ -9,7 +9,6 @@ type Props = {
 };
 
 function Learn({ allCourses }: Props) {
-  console.log(allCourses);
   return (
     <>
       <div className="pageContainerTop">

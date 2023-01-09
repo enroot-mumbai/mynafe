@@ -13,7 +13,6 @@ type Props = {
 };
 
 const Index = ({ course, video }: Props) => {
-  console.log(course, video);
   return (
     <div className="pageContainerTop">
       <PlayVideoLibrary video={video} course={course} />
@@ -43,8 +42,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
       };
     });
   });
-
-  console.log(paths);
 
   return {
     paths: paths?.[0] as paramsType[],

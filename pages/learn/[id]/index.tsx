@@ -12,8 +12,6 @@ type Props = {
 };
 
 function SingleLearn({ selectedCourse }: Props) {
-  console.log("selectedCourse", selectedCourse);
-
   // Show the course title
   // Load the first video or the active video on the top
   // Show a progress bar below the first video

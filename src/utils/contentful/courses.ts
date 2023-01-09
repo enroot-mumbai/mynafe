@@ -38,7 +38,6 @@ export async function getAllCourses(): Promise<any> {
         }
       }`
   );
-  console.log(result);
   entries = entries.concat(extractPostEntries(result));
   return entries;
 }
