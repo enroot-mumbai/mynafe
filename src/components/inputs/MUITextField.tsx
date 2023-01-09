@@ -23,11 +23,11 @@ const MaterialTextField = styled(TextField)<{
     },
     '& label.Mui-focused': {
       color: labelColor,
-      fontFamily: 'Montserrat',
+      fontFamily: 'Poppins',
     },
     '& label': {
       color: labelColor,
-      fontFamily: 'Montserrat',
+      fontFamily: 'Poppins',
       fontSize: '14px',
       top: '-3px',
     },
@@ -44,7 +44,7 @@ const MaterialTextField = styled(TextField)<{
       color: labelColor,
       border: '0px!important',
       borderRadius: '10px',
-      fontFamily: 'Montserrat',
+      fontFamily: 'Poppins',
     },
     '& .MuiOutlinedInput-input': {
       padding: '14px',

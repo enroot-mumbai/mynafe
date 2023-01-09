@@ -11,7 +11,7 @@ function Login({ }: Props) {
     return (
       <div className='d-flex column flex-gap20 mt-20'>
         <MaterialTextField variant="outlined" name="email" placeholder='Email address' />
-        <MaterialTextField variant="outlined" name="password" placeholder='Your password' />
+        <MaterialTextField variant="outlined" name="password" placeholder='Aapka password' />
         <Link className='text-link' href={'/forgot-password'}>
           Forgot Password?
         </Link>
@@ -26,6 +26,10 @@ function Login({ }: Props) {
     return (
       <div className='d-flex column flex-gap20 mt-20'>
         <MaterialTextField variant="outlined" name="phone" placeholder='Phone Number' />
+        <MaterialTextField variant="outlined" name="password" placeholder='Aapka password' />
+        <Link className='text-link' href={'/forgot-password'}>
+          Forgot Password?
+        </Link>
         <button className='primaryButton w-100'>
           Login
         </button>
@@ -35,19 +39,19 @@ function Login({ }: Props) {
 
   const tabs = [
     {
+      title: 'Phone Number',
+      Component: <LoginWithPhone />
+    },
+    {
       title: 'Email',
       Component: <LoginWithMail />
     },
-    {
-      title: 'Phone Number',
-      Component: <LoginWithPhone />
-    }
   ]
 
   return (
     <div className='pageContainerCenter'>
       <div className='pageContent'>
-        <h2 className='pageTitle'>Login</h2>
+        <h2 className='pageTitle text-center'>Login</h2>
 
         <BasicTabs tabs={tabs} />
 

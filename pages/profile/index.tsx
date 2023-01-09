@@ -21,16 +21,7 @@ function UserProfile({}: Props) {
           <button className="secondaryButton">Edit Profile</button>
 
           <span className="divider" />
-          <div>
-            <h3>Health Tip #2</h3>
-            <div className="mt-10">
-              <p>
-                Paryapt aaram lene swasthya ke liye achha hota hai. Hame kam se
-                kam 7-9 ghante sona chahiye.
-              </p>
-            </div>
-            <div></div>
-          </div>
+         
 
           <div className="mt-20">
             <button className="primaryButton">Join Myna Champions</button>

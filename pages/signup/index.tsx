@@ -6,7 +6,7 @@ import BasicTabs from "../../src/components/Tabs";
 
 type Props = {};
 
-function Signup({}: Props) {
+function Signup({ }: Props) {
   const router = useRouter();
 
   const SignupWithMail = () => {
@@ -23,12 +23,12 @@ function Signup({}: Props) {
         <MaterialTextField
           variant="outlined"
           name="password"
-          placeholder="Your password"
+          placeholder="Aapka password"
         />
         <MaterialTextField
           variant="outlined"
           name="confirm-password"
-          placeholder="Confirm your password"
+          placeholder="Password confirm kare"
         />
 
         <Link className="max-w-320" href={"/terms"}>
@@ -50,6 +50,16 @@ function Signup({}: Props) {
           name="phone"
           placeholder="Phone Number"
         />
+        <MaterialTextField
+          variant="outlined"
+          name="password"
+          placeholder="Aapka password"
+        />
+        <MaterialTextField
+          variant="outlined"
+          name="confirm-password"
+          placeholder="Password confirm kare"
+        />
 
         <Link className="max-w-320" href={"/terms"}>
           By continuing you agree to the{" "}
@@ -63,23 +73,23 @@ function Signup({}: Props) {
 
   const tabs = [
     {
-      title: "Email",
-      Component: <SignupWithMail />,
-    },
-    {
       title: "Phone Number",
       Component: <SignupWithPhone />,
+    },
+    {
+      title: "Email",
+      Component: <SignupWithMail />,
     },
   ];
 
   return (
     <div className="pageContainerCenter">
       <div className="pageContent">
-        <h2 className="pageTitle">Signup</h2>
+        <h2 className="pageTitle center">Register kare</h2>
         <BasicTabs tabs={tabs} />
         <span className="divider"></span>
         <Link href={"/login"}>
-          Already a user? <span className="text-link">Login here</span>
+          <span className="text-link w-100">Agar aapne pehle is app ka istemal kia hai, toh yahase Login kare</span>
         </Link>
       </div>
     </div>
