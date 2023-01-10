@@ -1,6 +1,4 @@
 import React from "react";
-import SimpleBottomNavigation from "../../src/components/layout/BottomNavigation";
-import Navigation from "../../src/components/layout/Navigation";
 import ChatGroupCard from "../../src/features/chats/ChatGroupCard";
 
 type Props = {};
