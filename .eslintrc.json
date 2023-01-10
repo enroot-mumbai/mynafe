@@ -36,7 +36,8 @@
     "@typescript-eslint/no-empty-function": "off",
     "no-empty-pattern": "off",
     "react/display-name": "off",
-    "react/no-find-dom-node": "off"
+    "react/no-find-dom-node": "off",
+    "no-prototype-builtins":"off"
   },
   "globals": {
     "React": "writable"

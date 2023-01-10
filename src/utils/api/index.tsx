@@ -87,7 +87,7 @@ const request = async ({
 }: RequestParams) => {
   return new Promise((resolve, reject) => {
     //  sets the options which is passed to axios to make the request
-    let options: any = {
+    const options: any = {
       method,
       url,
     };
