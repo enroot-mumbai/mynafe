@@ -5,6 +5,7 @@ import PlayArrowRoundedIcon from "@mui/icons-material/PlayArrowRounded";
 import classes from "./index.module.scss";
 import { BaseReactPlayerProps } from "react-player/base";
 import { useRouter } from "next/router";
+import { FullScreen, useFullScreenHandle } from "react-full-screen";
 
 interface VideoPlayerProps extends callBackProps {
   videoURL?: string;
@@ -12,7 +13,7 @@ interface VideoPlayerProps extends callBackProps {
 }
 
 interface callBackProps extends BaseReactPlayerProps {
-  onPlay?: () => void;
+  onPlay: () => void;
   playing?: boolean;
   volume?: number;
   mute?: boolean;
@@ -27,73 +28,19 @@ export const VideoPlayer = ({
   mute = false,
   ...props
 }: VideoPlayerProps) => {
+  const player = useFullScreenHandle();
+
   const router = useRouter();
-  const onStart = (player) => {
-    if (findDOMNode(player)?.requestFullscreen) {
-      findDOMNode(player)
-        .requestFullscreen()
-        .then(() => {
-          screen?.orientation
-            ?.lock("landscape")
-            .catch((err) =>
-              console.log("landscape mode is not available on this device")
-            );
-        })
-        .catch((err) => {
-          screen?.orientation?.lock("natural");
-          console.log("Could not activate full-screen mode :(");
-        });
-    } else if (findDOMNode(player)?.mozRequestFullScreen) {
-      findDOMNode(player)
-        .mozRequestFullScreen()
-        .then(() => {
-          screen?.orientation
-            ?.lock("landscape")
-            .catch((err) =>
-              console.log("landscape mode is not available on this device")
-            );
-        })
-        .catch((err) => {
-          screen?.orientation?.lock("natural");
-          console.log("Could not activate full-screen mode :(");
-        });
-    } else if (findDOMNode(player)?.webkitRequestFullscreen) {
-      findDOMNode(player)
-        .webkitRequestFullscreen()
-        .then(() => {
-          screen?.orientation
-            ?.lock("landscape")
-            .catch((err) =>
-              console.log("landscape mode is not available on this device")
-            );
-        })
-        .catch((err) => {
-          screen?.orientation?.lock("natural");
-          console.log("Could not activate full-screen mode :(");
-        });
-    }
+
+  const onStart = () => {
+    //todo : need to handle fullscreen error
+    player.enter().catch((error) => console.log(error));
+    screen.orientation.lock("landscape").catch((err) => console.log(err));
   };
-  React.useEffect(() => {
-    if (router?.query?.overview === "false" && ReactPlayer.canPlay(videoURL)) {
-      onPlay();
-      onStart();
-    }
-  }, []);
 
   const onEnded = () => {
-    if (document.exitFullscreen) {
-      document
-        .exitFullscreen()
-        .then(() => screen?.orientation?.lock("natural"));
-    } else if (document?.mozCancelFullScreen) {
-      document
-        ?.mozCancelFullScreen()
-        .then(() => screen?.orientation?.lock("natural"));
-    } else if (document?.webkitExitFullscreen) {
-      document
-        ?.webkitExitFullscreen()
-        .then(() => screen?.orientation?.lock("natural"));
-    }
+    player.exit().catch((error) => console.log(error));
+    screen.orientation.lock("portrait").catch((err) => console.log(err));
   };
   const Video = React.useCallback(
     ({
@@ -103,35 +50,42 @@ export const VideoPlayer = ({
       mute = false,
       ...videoProps
     }: callBackProps) => {
-      let player = null;
-      const ref = (p) => {
-        player = p?.player;
-      };
+      React.useEffect(() => {
+        if (
+          router?.query?.overview === "false" &&
+          ReactPlayer.canPlay(videoURL)
+        ) {
+          onPlay();
+          onStart();
+        }
+      }, []);
 
+      // fix ui of fullscreen component of react fullscreen
       return (
-        <ReactPlayer
-          url={videoURL}
-          playing={playing}
-          controls={true}
-          width="100%"
-          height="inherit"
-          light={playing ? "" : videoThumbnail}
-          volume={volume}
-          muted={mute}
-          ref={ref}
-          onStart={onStart}
-          onPlay={onPlay}
-          onEnded={onEnded}
-          playIcon={
-            <div className={classes.play}>
-              <PlayArrowRoundedIcon style={{ fill: "white" }} />
-            </div>
-          }
-          config={{
-            file: { attributes: { controlsList: "nodownload" } },
-          }}
-          {...videoProps}
-        />
+        <FullScreen handle={player}>
+          <ReactPlayer
+            url={videoURL}
+            playing={playing}
+            controls={true}
+            width="100%"
+            height="inherit"
+            light={playing ? "" : videoThumbnail}
+            volume={volume}
+            muted={mute}
+            onStart={onStart}
+            onPlay={onPlay}
+            onEnded={onEnded}
+            playIcon={
+              <div className={classes.play}>
+                <PlayArrowRoundedIcon style={{ fill: "white" }} />
+              </div>
+            }
+            config={{
+              file: { attributes: { controlsList: "nodownload" } },
+            }}
+            {...videoProps}
+          />
+        </FullScreen>
       );
     },
     [videoURL, videoThumbnail]
