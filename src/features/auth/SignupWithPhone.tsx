@@ -34,7 +34,9 @@ function SignupWithPhone({ }: Props) {
                     variant="outlined"
                     helperText={errors.phone && errors.phone.message}
                     {...register("phone", {
-                        required: { value: true, message: 'phone dalna zaruri hai' }
+                        required: { value: true, message: 'Phone number dalna zaruri hai' },
+                        minLength: {value: 10, message:'Phone number 10 digit ka hona chahiye'},
+                        maxLength: {value: 10, message:'Phone number 10 digit ka hona chahiye'},
                     })}
                 />
                 <TextField
