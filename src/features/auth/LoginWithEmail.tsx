@@ -44,7 +44,7 @@ function LoginWithEmail({ }: Props) {
                     label="Aapka password"
                     variant="outlined"
                     helperText={errors.password && errors.password.message}
-                    {...register("password", { required: true })}
+                    {...register("password", { required: true, minLength: {value: 6, message:'Password mai 6 akshar hone chahiye'} })}
                 />
                 <Link className='text-link' href={'/forgot-password'}>
                     Forgot Password?
