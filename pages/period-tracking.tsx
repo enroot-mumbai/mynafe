@@ -1,15 +1,22 @@
 import React from "react";
-import SimpleBottomNavigation from "../src/components/layout/BottomNavigation";
-import Navigation from "../src/components/layout/Navigation";
+import PeriodTrackingComponent from "../src/features/periodTracking/PeriodTrackingComponent";
 
 type Props = {};
 
-function PeriodTracking({}: Props) {
+function PeriodTracking({ }: Props) {
+  const periods: any = [
+    {
+      startDate:'25/05/2022'
+    }
+  ];
   return (
     <>
       <div className="pageContainerTop">
         <div className="pageContent p-20">
-          <h2 className="pageTitle">Sehat</h2>
+
+          <PeriodTrackingComponent periods={periods} />
+
+          
         </div>
       </div>
     </>

@@ -1,0 +1,74 @@
+@import './../../theme/theme';
+
+.noPeriodTrackingComponent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    margin: auto;
+    .noPeriodTrackingTitle{
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+}
+
+.nextPeriodDetails{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    p{
+        font-weight: bold;
+        font-size: 20px;
+        margin-right: 6px;
+    }
+}
+
+.periodInfoCard{
+    padding: 20px;
+    display: flex;
+    background-color: $backgroundColor;
+    border-radius: 10px;
+    margin-top: 30px;
+    gap: 10px;
+    align-items: center;
+    p{
+        opacity: 0.6;
+    }
+    svg{
+        min-width: 24px;
+    }
+}
+
+.previousPeriodCard{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: $backgroundColor;
+    border-radius: 10px;
+    margin-top: 30px;
+    gap: 10px;
+    .previousPeriodTitle{
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .tipControls{
+        display: flex;
+        gap: 10px;
+    }
+}
+
+.nextPeriodDate{
+    font-size: 12px;
+    margin-top: 20px;
+}
+
+.periodDaysLabel{
+    background-color: $primaryColor;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+}

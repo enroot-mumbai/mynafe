@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import React from "react";
 import styles from './../../styles/Profile.module.scss'
 
@@ -12,6 +13,8 @@ function UserProfile({ }: Props) {
     address: 'Thane, Maharashtra, India',
     dob: '24th May 1996'
   }
+
+  const router = useRouter();
   return (
     <>
       <div className="pageContainerTop">
@@ -48,7 +51,9 @@ function UserProfile({ }: Props) {
             <p className={styles.profileValue}>{user.dob}</p>
           </div>
 
-          <button className="secondaryButton">Edit Profile</button>
+          <button onClick={() => {
+            router.push('/edit-profile')
+          }} className="secondaryButton">Edit Profile</button>
 
           <span className="divider" />
 
